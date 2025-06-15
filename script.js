@@ -38,7 +38,9 @@ const O = {
   },
   "minecraft": {
     "base_url": "https://namemc.com/",
-    "handles": {}
+    "handles": {
+		"poignance": 20
+	}
   },
   "tiktok": {
     "base_url": "https://www.tiktok.com/@",
@@ -50,15 +52,27 @@ const O = {
   },
   "soundcloud": {
     "base_url": "https://soundcloud.com/",
-    "handles": {}
+    "handles": {
+		"subexpression": 5,
+		"impropriety": 5
+	}
   },
-  "epicgames": {
-    "base_url": "https://fortnitetracker.com/profile/all/",
-    "handles": {}
+  "roblox": {
+    "base_url": "https://www.roblox.com/search/users?keyword=",
+    "handles": {
+		"h_alth": 5,
+		"e_onomy": 5,
+		"m_mbership": 5,
+		"p_aceful": 5
+	}
   },
   "twitch": {
     "base_url": "https://www.twitch.tv/",
-    "handles": {}
+    "handles": {
+		"p_ssesion": 5,
+		"subexpression": 10,
+		"s_xuality": 5
+	}
   },
   "discord": {
     "base_url": "",
