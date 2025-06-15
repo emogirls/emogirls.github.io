@@ -49,7 +49,7 @@ const O = {
   "steam": {
     "base_url": "https://steamcommunity.com/id/",
     "handles": {
-	    "aberrating", 5
+	    "aberrating": 5
     }
   },
   "soundcloud": {
