@@ -48,7 +48,9 @@ const O = {
   },
   "steam": {
     "base_url": "https://steamcommunity.com/id/",
-    "handles": {}
+    "handles": {
+	    "aberrating", 5
+    }
   },
   "soundcloud": {
     "base_url": "https://soundcloud.com/",
