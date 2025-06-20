@@ -259,6 +259,12 @@ body {
     box-shadow: 0px 0px 5px #21202e;
 }
 
+.category-icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 8px;
+    image-rendering: crisp-edges;
+}
 .category:hover {
     color: var(--color-white);
     text-shadow: 0 0 5px var(--color-white);

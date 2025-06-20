@@ -104,7 +104,7 @@ const O = {
     "handles": {}
   }
 },
-I = {"telegram": {"username": "aberrating", "link": "https://t.me/aberrating"}, "portal (all channels/markets)": {"username": "neptunecheck", "link": "https://t.me/neptunecheck"}},
+I = {"telegram": {"username": "aberrating", "link": "https://t.me/aberrating"}, "telegram server (stock)": {"username": "neptunecheck", "link": "https://t.me/neptunecheck"}},
 B = a5(0x147);
 
 
