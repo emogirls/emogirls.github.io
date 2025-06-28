@@ -15,18 +15,18 @@ button{padding:.5rem 1rem;margin-left:.5rem}.h{display:none}.b{color:red;font-we
 (function(){
 function D(s){return decodeURIComponent(escape(window.atob(s)));}
 const riddles = [
-  "U2hpZnQgbWUgMTMgYW5kIEkgdHVybiB0byBULiBJbiBHcmVlayBJ4oCZbSBhIGdhbW1hLCB0aGlyZCB5b3XigJl2ZSBzZWUuIFdoYXQgbGV0dGVyIGFtIEk/", // G
-  "Ik5laXRoZXIgY29uc29uYW50IG5vciBzaHkuIEZpcnN0IGluICdhZG9yZScgYW5kIGFsd2F5cyBuZWFyYnk/", // A
-  "IlR3aWNlIEkgc3RhbmQgYmFjay10by1iYWNrIGluIOKAnGJ1YmJsZeKAnS4gSSBicmluZyB0aGUgYm9vbSBpbiBldmVyeSBzZW5zYXRpb24u", // B
-  "IkkmIzM5O20gbm90IGEgYmFsbCBidXQgSSBib3VuY2UgbGlrZSBvbmUuIEkmIzM5O20gdGhlIHNlY29uZCBsZXR0ZXIgd2hlcmUgYmlnIHRoaW5ncyBiZWdpbi4/", // B
-  "IlNheSBtZSB0aHJpY2UgYW5kIHlvdSBtaWdodCBiZSByaWdodC4gSSBlY2hvIGluIG1hbnku", // B
-  "IkkgZW5kIG5vIHdvcmQgYnV0IGVjaG8gaW4gbWFueSDigJQgQ2FuIHlvdSBuYW1lIG9uZSB0aGF0IGRvZXNu4oCZdCBoYXZlIGFueT8/", // I
-  "IkkgbmV2ZXIgc3RhbmQgd2l0aCBvdGhlcnMsIHVwcmlnaHQgYW5kIHRoaW4uIEluICdpbGx1c2lvbicgSSBhcHBlYXIgdGhyaWNlLg/", // I
-  "IkknbSBwcm91ZCBhbmQgdHJ1ZSwgd2hlcmUgZWdvIGJlZ2lucy4gSSBzdGFuZCBhbG9uZSB3aXRoIGEgdmlldy4/", // I
-  "IkEgUm9tYW4gbWlnaHQgc2VlIG1lIGFuZCBzYXkgaXzigJlzIG9uZS4gQnV0IGZvciB1cywgaXQncyBhIHZlcnRpY2FsIGxpbmUgYmVmb3JlIGZ1bi4/", // .
-  "IkkgZW5kIGV2ZXJ5IHdoaXNwZXIgYW5kIHBhdXNlIGV2ZXJ5IHNvdW5kLiBTbWFsbCBhbmQgcm91bmQsIEkgbW92ZSB5b3UgYXJvdW5kLg/", // M
-  "IkN1cnZlZCBsaWtlIGEgbW91bnRhaW4sIGRvdWJsZWQgaW4gcGVhay4gSSBodW0gYSByb21hbnRpYyB0dW5lLg/", // N
-  "IkluICd1bmtub3duJyBhbmQgJ25pZ2h0JyBJIGJlbmQuIEFmdGVyIE0sIEkgc29mdGx5IGRlc2NlbmQu", // S
+  "U2hpZnQgbWUgMTMgYW5kIEkgdHVybiB0byBULiBJbiBHcmVlayBJ4oCZbSBhIGdhbW1hLCB0aGlyZCB5b3XigJl2ZSBzZWUuIFdoYXQgbGV0dGVyIGFtIEk/", // 
+  "Ik5laXRoZXIgY29uc29uYW50IG5vciBzaHkuIEZpcnN0IGluICdhZG9yZScgYW5kIGFsd2F5cyBuZWFyYnk/", // 
+  "IlR3aWNlIEkgc3RhbmQgYmFjay10by1iYWNrIGluIOKAnGJ1YmJsZeKAnS4gSSBicmluZyB0aGUgYm9vbSBpbiBldmVyeSBzZW5zYXRpb24u", // 
+  "IkkmIzM5O20gbm90IGEgYmFsbCBidXQgSSBib3VuY2UgbGlrZSBvbmUuIEkmIzM5O20gdGhlIHNlY29uZCBsZXR0ZXIgd2hlcmUgYmlnIHRoaW5ncyBiZWdpbi4/", // 
+  "IlNheSBtZSB0aHJpY2UgYW5kIHlvdSBtaWdodCBiZSByaWdodC4gSSBlY2hvIGluIG1hbnku", // 
+  "IkkgZW5kIG5vIHdvcmQgYnV0IGVjaG8gaW4gbWFueSDigJQgQ2FuIHlvdSBuYW1lIG9uZSB0aGF0IGRvZXNu4oCZdCBoYXZlIGFueT8/", // 
+  "IkkgbmV2ZXIgc3RhbmQgd2l0aCBvdGhlcnMsIHVwcmlnaHQgYW5kIHRoaW4uIEluICdpbGx1c2lvbicgSSBhcHBlYXIgdGhyaWNlLg/", // 
+  "IkknbSBwcm91ZCBhbmQgdHJ1ZSwgd2hlcmUgZWdvIGJlZ2lucy4gSSBzdGFuZCBhbG9uZSB3aXRoIGEgdmlldy4/", // 
+  "IkEgUm9tYW4gbWlnaHQgc2VlIG1lIGFuZCBzYXkgaXzigJlzIG9uZS4gQnV0IGZvciB1cywgaXQncyBhIHZlcnRpY2FsIGxpbmUgYmVmb3JlIGZ1bi4/", // 
+  "IkkgZW5kIGV2ZXJ5IHdoaXNwZXIgYW5kIHBhdXNlIGV2ZXJ5IHNvdW5kLiBTbWFsbCBhbmQgcm91bmQsIEkgbW92ZSB5b3UgYXJvdW5kLg/", // 
+  "IkN1cnZlZCBsaWtlIGEgbW91bnRhaW4sIGRvdWJsZWQgaW4gcGVhay4gSSBodW0gYSByb21hbnRpYyB0dW5lLg/", // 
+  "IkluICd1bmtub3duJyBhbmQgJ25pZ2h0JyBJIGJlbmQuIEFmdGVyIE0sIEkgc29mdGx5IGRlc2NlbmQu", // 
 ];
 const answers = ["g","a","b","b","b","i","i","i",".","m","n","s"];
 let C=0,E=0;
