@@ -1,0 +1,65 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>🔐</title><style>
+body{font-family:sans-serif;background:#000;color:#eee;padding:2rem;max-width:600px;margin:auto}
+.r{margin-bottom:1.5rem}input{padding:.5rem;font-size:1rem;width:80px;text-align:center}
+button{padding:.5rem 1rem;margin-left:.5rem}.h{display:none}.b{color:red;font-weight:bold}
+.i{font-size:1.4rem;color:#0f0;margin-top:2rem}
+</style></head><body><h1>🔐</h1>
+<p>Solve each riddle. 3 mistakes per question = locked out.</p>
+<div id="g"><div class="r" id="x">
+<h3>Riddle <span id="q">1</span>:</h3><p id="z"></p>
+<input type="text" maxlength="1" id="a" autofocus>
+<button onclick="O()">Go</button><p>Fails: <span id="f">0</span>/3</p></div></div>
+<p id="l" class="b h">🔒 You're locked out.</p>
+<p id="w" class="i h" style="word-break:break-word;"></p>
+<script>
+(function(){
+function D(s){return decodeURIComponent(escape(window.atob(s)));}
+const riddles = [
+  "U2hpZnQgbWUgMTMgYW5kIEkgdHVybiB0byBULiBJbiBHcmVlayBJ4oCZbSBhIGdhbW1hLCB0aGlyZCB5b3XigJl2ZSBzZWUuIFdoYXQgbGV0dGVyIGFtIEk/", // G
+  "Ik5laXRoZXIgY29uc29uYW50IG5vciBzaHkuIEZpcnN0IGluICdhZG9yZScgYW5kIGFsd2F5cyBuZWFyYnk/", // A
+  "IlR3aWNlIEkgc3RhbmQgYmFjay10by1iYWNrIGluIOKAnGJ1YmJsZeKAnS4gSSBicmluZyB0aGUgYm9vbSBpbiBldmVyeSBzZW5zYXRpb24u", // B
+  "IkkmIzM5O20gbm90IGEgYmFsbCBidXQgSSBib3VuY2UgbGlrZSBvbmUuIEkmIzM5O20gdGhlIHNlY29uZCBsZXR0ZXIgd2hlcmUgYmlnIHRoaW5ncyBiZWdpbi4/", // B
+  "IlNheSBtZSB0aHJpY2UgYW5kIHlvdSBtaWdodCBiZSByaWdodC4gSSBlY2hvIGluIG1hbnku", // B
+  "IkkgZW5kIG5vIHdvcmQgYnV0IGVjaG8gaW4gbWFueSDigJQgQ2FuIHlvdSBuYW1lIG9uZSB0aGF0IGRvZXNu4oCZdCBoYXZlIGFueT8/", // I
+  "IkkgbmV2ZXIgc3RhbmQgd2l0aCBvdGhlcnMsIHVwcmlnaHQgYW5kIHRoaW4uIEluICdpbGx1c2lvbicgSSBhcHBlYXIgdGhyaWNlLg/", // I
+  "IkknbSBwcm91ZCBhbmQgdHJ1ZSwgd2hlcmUgZWdvIGJlZ2lucy4gSSBzdGFuZCBhbG9uZSB3aXRoIGEgdmlldy4/", // I
+  "IkEgUm9tYW4gbWlnaHQgc2VlIG1lIGFuZCBzYXkgaXzigJlzIG9uZS4gQnV0IGZvciB1cywgaXQncyBhIHZlcnRpY2FsIGxpbmUgYmVmb3JlIGZ1bi4/", // .
+  "IkkgZW5kIGV2ZXJ5IHdoaXNwZXIgYW5kIHBhdXNlIGV2ZXJ5IHNvdW5kLiBTbWFsbCBhbmQgcm91bmQsIEkgbW92ZSB5b3UgYXJvdW5kLg/", // M
+  "IkN1cnZlZCBsaWtlIGEgbW91bnRhaW4sIGRvdWJsZWQgaW4gcGVhay4gSSBodW0gYSByb21hbnRpYyB0dW5lLg/", // N
+  "IkluICd1bmtub3duJyBhbmQgJ25pZ2h0JyBJIGJlbmQuIEFmdGVyIE0sIEkgc29mdGx5IGRlc2NlbmQu", // S
+];
+const answers = ["g","a","b","b","b","i","i","i",".","m","n","s"];
+let C=0,E=0;
+const F=document.getElementById("z"),G=document.getElementById("q"),H=document.getElementById("a"),I=document.getElementById("f"),J=document.getElementById("l"),K=document.getElementById("w"),L=document.getElementById("x");
+
+const secretChunks=["Z2E=","YmI=","YmI=","aa==","aa==","Lm0=","bnM="];
+function decryptSecret(chunks){return chunks.map(c => atob(c)).join('');}
+
+window.O=function(){
+  if(E>=3)return;
+  let M=H.value.trim().toLowerCase();
+  if(M===answers[C]){
+    C++;
+    E=0;
+    if(C===riddles.length){
+      L.classList.add("h");
+      K.classList.remove("h");
+      K.innerHTML="✅ IG: <strong>"+decryptSecret(secretChunks)+"</strong>";
+    } else N();
+  } else {
+    E++;
+    I.textContent=E;
+    if(E>=3){L.classList.add("h");J.classList.remove("h");}
+    else alert("Wrong. Try again carefully.");
+  }
+}
+function N(){F.textContent=D(riddles[C]);G.textContent=C+1;H.value="";H.focus();I.textContent=E;}
+N();
+
+// Anti-devtools
+console.log=()=>{};Object.defineProperty(window,'console',{get:()=>{throw'Blocked'}});
+window.oncontextmenu=e=>e.preventDefault();
+document.addEventListener('keydown',e=>{if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&['I','J','C','U'].includes(e.key)))e.preventDefault();});
+})();
+</script>
+</body></html>
