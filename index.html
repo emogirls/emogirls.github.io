@@ -1,65 +1,69 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><title>🔐</title><style>
-body{font-family:sans-serif;background:#000;color:#eee;padding:2rem;max-width:600px;margin:auto}
-.r{margin-bottom:1.5rem}input{padding:.5rem;font-size:1rem;width:80px;text-align:center}
-button{padding:.5rem 1rem;margin-left:.5rem}.h{display:none}.b{color:red;font-weight:bold}
-.i{font-size:1.4rem;color:#0f0;margin-top:2rem}
-</style></head><body><h1>🔐</h1>
-<p>Solve each riddle. 3 mistakes per question = locked out.</p>
-<div id="g"><div class="r" id="x">
-<h3>Riddle <span id="q">1</span>:</h3><p id="z"></p>
-<input type="text" maxlength="1" id="a" autofocus>
-<button onclick="O()">Go</button><p>Fails: <span id="f">0</span>/3</p></div></div>
-<p id="l" class="b h">🔒 You're locked out.</p>
-<p id="w" class="i h" style="word-break:break-word;"></p>
-<script>
-(function(){
-function D(s){return decodeURIComponent(escape(window.atob(s)));}
-const riddles = [
-  "U2hpZnQgbWUgMTMgYW5kIEkgdHVybiB0byBULiBJbiBHcmVlayBJ4oCZbSBhIGdhbW1hLCB0aGlyZCB5b3XigJl2ZSBzZWUuIFdoYXQgbGV0dGVyIGFtIEk/", // 
-  "Ik5laXRoZXIgY29uc29uYW50IG5vciBzaHkuIEZpcnN0IGluICdhZG9yZScgYW5kIGFsd2F5cyBuZWFyYnk/", // 
-  "IlR3aWNlIEkgc3RhbmQgYmFjay10by1iYWNrIGluIOKAnGJ1YmJsZeKAnS4gSSBicmluZyB0aGUgYm9vbSBpbiBldmVyeSBzZW5zYXRpb24u", // 
-  "IkkmIzM5O20gbm90IGEgYmFsbCBidXQgSSBib3VuY2UgbGlrZSBvbmUuIEkmIzM5O20gdGhlIHNlY29uZCBsZXR0ZXIgd2hlcmUgYmlnIHRoaW5ncyBiZWdpbi4/", // 
-  "IlNheSBtZSB0aHJpY2UgYW5kIHlvdSBtaWdodCBiZSByaWdodC4gSSBlY2hvIGluIG1hbnku", // 
-  "IkkgZW5kIG5vIHdvcmQgYnV0IGVjaG8gaW4gbWFueSDigJQgQ2FuIHlvdSBuYW1lIG9uZSB0aGF0IGRvZXNu4oCZdCBoYXZlIGFueT8/", // 
-  "IkkgbmV2ZXIgc3RhbmQgd2l0aCBvdGhlcnMsIHVwcmlnaHQgYW5kIHRoaW4uIEluICdpbGx1c2lvbicgSSBhcHBlYXIgdGhyaWNlLg/", // 
-  "IkknbSBwcm91ZCBhbmQgdHJ1ZSwgd2hlcmUgZWdvIGJlZ2lucy4gSSBzdGFuZCBhbG9uZSB3aXRoIGEgdmlldy4/", // 
-  "IkEgUm9tYW4gbWlnaHQgc2VlIG1lIGFuZCBzYXkgaXzigJlzIG9uZS4gQnV0IGZvciB1cywgaXQncyBhIHZlcnRpY2FsIGxpbmUgYmVmb3JlIGZ1bi4/", // 
-  "IkkgZW5kIGV2ZXJ5IHdoaXNwZXIgYW5kIHBhdXNlIGV2ZXJ5IHNvdW5kLiBTbWFsbCBhbmQgcm91bmQsIEkgbW92ZSB5b3UgYXJvdW5kLg/", // 
-  "IkN1cnZlZCBsaWtlIGEgbW91bnRhaW4sIGRvdWJsZWQgaW4gcGVhay4gSSBodW0gYSByb21hbnRpYyB0dW5lLg/", // 
-  "IkluICd1bmtub3duJyBhbmQgJ25pZ2h0JyBJIGJlbmQuIEFmdGVyIE0sIEkgc29mdGx5IGRlc2NlbmQu", // 
-];
-const answers = ["g","a","b","b","b","i","i","i",".","m","n","s"];
-let C=0,E=0;
-const F=document.getElementById("z"),G=document.getElementById("q"),H=document.getElementById("a"),I=document.getElementById("f"),J=document.getElementById("l"),K=document.getElementById("w"),L=document.getElementById("x");
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>🔐</title><style>body{background:#000;color:#eee;font-family:sans-serif;padding:2rem;max-width:600px;margin:auto}input{padding:.5rem;font-size:1rem;width:80px;text-align:center}button{padding:.5rem 1rem;margin-left:.5rem}p{margin:.5rem 0}.h{display:none}.b{color:#f44;font-weight:700}.i{color:#0f0;font-size:1.3rem;word-break:break-word}</style></head><body><h1>🔐</h1><p>Solve each riddle. You get 3 tries per letter before lockout.</p><div id="r"><div class="r"><h3>Riddle <span id="q">1</span>:</h3><p id="t"></p><input maxlength="1" type="text" id="i" autofocus><button onclick="f()">Go</button><p>Fails: <span id="m">0</span>/3</p></div></div><p id="l" class="b h">🔒 Locked out.</p><p id="s" class="i h"></p><script>
+(()=>{
+	const e = [
+	  "Shift me 13 and I turn to T. In Greek I'm a gamma, third you've see. What letter am I?",
+	  "Neither consonant nor shy. First in 'adore' and always nearby?",
+	  "Twice I stand back-to-back in ‘bubble’. I bring the boom in every sensation.",
+	  "I'm not a ball but I bounce like one. I'm the second letter where big things begin?",
+	  "Say me thrice and you might be right. I echo in many.",
+	  "I end no word but echo in many – Can you name one that doesn’t have any?",
+	  "I never stand with others, upright and thin. In 'illusion' I appear thrice within.",
+	  "I'm proud and true, where ego begins. I stand alone with a view.",
+	  "A Roman might see me and say 'I'm one.' But for us, it's a vertical line before fun.",
+	  "I end every whisper and pause every sound. Small and round, I move you around.",
+	  "Curved like a mountain, doubled in peak. I hum a romantic tune.",
+	  "In 'unknown' and 'night' I bend. After M, I softly descend.",
+	  "The last letter sounds like a hiss, at the end of words it often is."
+	],
+  a=[104,98,99,99,99,99,106,106,106,47,110,111,116],
+  n=o=>o.map(c=>String.fromCharCode(c-1)),
+  r=n(a);
+  let c=0,f=0;
+  const d=document.getElementById("t"),
+        q=document.getElementById("q"),
+        inp=document.getElementById("i"),
+        fail=document.getElementById("m"),
+        lock=document.getElementById("l"),
+        show=document.getElementById("s"),
+        box=document.getElementById("r");
 
-const secretChunks=["Z2E=","YmI=","YmI=","aa==","aa==","Lm0=","bnM="];
-function decryptSecret(chunks){return chunks.map(c => atob(c)).join('');}
-
-window.O=function(){
-  if(E>=3)return;
-  let M=H.value.trim().toLowerCase();
-  if(M===answers[C]){
-    C++;
-    E=0;
-    if(C===riddles.length){
-      L.classList.add("h");
-      K.classList.remove("h");
-      K.innerHTML="✅ IG: <strong>"+decryptSecret(secretChunks)+"</strong>";
-    } else N();
-  } else {
-    E++;
-    I.textContent=E;
-    if(E>=3){L.classList.add("h");J.classList.remove("h");}
-    else alert("Wrong. Try again carefully.");
+  function v(){
+    box.classList.add("h");
+    lock.classList.remove("h");
   }
-}
-function N(){F.textContent=D(riddles[C]);G.textContent=C+1;H.value="";H.focus();I.textContent=E;}
-N();
-
-// Anti-devtools
-console.log=()=>{};Object.defineProperty(window,'console',{get:()=>{throw'Blocked'}});
-window.oncontextmenu=e=>e.preventDefault();
-document.addEventListener('keydown',e=>{if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&['I','J','C','U'].includes(e.key)))e.preventDefault();});
+  function u(){
+    box.classList.add("h");
+    show.classList.remove("h");
+    show.innerHTML="✅ IG: <strong>"+r.join('')+"</strong>";
+  }
+  window.f=()=>{
+    if(f>=3)return;
+    let val=inp.value.trim().toLowerCase();
+    if(val===r[c]){
+      c++;
+      f=0;
+      if(c===e.length)u();
+      else p();
+    } else {
+      f++;
+      fail.textContent=f;
+      if(f>=3)v();
+      else alert("Wrong! Try again.");
+    }
+  }
+  function p(){
+    d.textContent=e[c];
+    q.textContent=c+1;
+    inp.value="";
+    inp.focus();
+    fail.textContent=f;
+  }
+  console.log=()=>{};
+  Object.defineProperty(window,"console",{get:()=>{throw"Blocked"}});
+  window.oncontextmenu=e=>e.preventDefault();
+  document.addEventListener("keydown",e=>{
+    if(e.key==="F12"||(e.ctrlKey&&e.shiftKey&&["I","J","C","U"].includes(e.key)))e.preventDefault();
+  });
+  p();
 })();
-</script>
-</body></html>
+</script></body></html>
