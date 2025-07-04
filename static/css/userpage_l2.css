@@ -1,0 +1,68 @@
+.snowflake {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(white, white);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px white);
+    z-index: 0;
+    }
+    
+    .cursor-typed {
+    -webkit-animation:Typewriter-cursor 1s infinite;
+    animation:Typewriter-cursor 1s infinite;
+    margin-left:1px
+    }
+    @-webkit-keyframes Typewriter-cursor {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+    }
+    
+    @keyframes Typewriter-cursor {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+    }
+    
+    .blurred-background-div {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    .blurred-background-div.active {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    
+    .widget-item {
+    width: 100%;
+    }
+    @media (max-width: 768px) {
+    .widgets-row {
+        flex-direction: column;
+    }
+    }
+    
+    .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    }
+    
+    .dots {
+    background: transparent url(https://i.imgur.com/EyzV6w4.png) repeat 0 0;
+    }
+    
+    @keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    }
+    .bounce-hover:hover {
+    animation: bounce 1s infinite;
+    }

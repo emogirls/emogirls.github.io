@@ -1,0 +1,1 @@
+Redirecting to /cursor-effects@1.0.17/dist/browser.js
